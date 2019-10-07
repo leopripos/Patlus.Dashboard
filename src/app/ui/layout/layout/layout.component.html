@@ -1,0 +1,23 @@
+<div class="container">
+  <ng-template [ngIf]="this.hasNav" [ngIfElse]="contentWithoutNav">
+    <ng-container [ngTemplateOutlet]="contentWithNav"></ng-container>
+  </ng-template>
+  <ng-content select="app-layout-footer"></ng-content>
+</div>
+
+<ng-template #contentWithNav>
+  <mat-sidenav-container>
+    <mat-sidenav [opened]="this.isNavOpened" (openedChange)="this.navStateChanged($event)"
+      [mode]="this.isOverMode ? 'over' : 'side'" [fixedInViewport]="this.isOverMode">
+      <ng-content select="app-layout-nav"></ng-content>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <ng-content select="app-layout-header"></ng-content>
+      <ng-content select="app-layout-content"></ng-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-template>
+
+<ng-template #contentWithoutNav>
+  <ng-content select="app-layout-content"></ng-content>
+</ng-template>

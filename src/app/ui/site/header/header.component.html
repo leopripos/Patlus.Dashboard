@@ -1,0 +1,22 @@
+<mat-toolbar class="mat-elevation-z4">
+  <div class="nav left-nav">
+    <button class="nav-item" mat-button (click)="this.toggleNav()" *ngIf="this.isOverMode">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div class="nav center-nav">
+    Patlus
+  </div>
+  <div class="nav right-nav">
+    <button class="nav-item" mat-button [matMenuTriggerFor]="matProfileMenu">
+      <img class="circle-image" src="assets/images/default/profile.png" />
+    </button>
+
+    <mat-menu #matProfileMenu="matMenu">
+      <button mat-menu-item (click)="onLogout($event)">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,10 @@
+:host {
+  .container {
+      margin: 10px;
+
+      .form-container {
+        display: flex;
+        flex-direction: column;
+      }
+  }
+}

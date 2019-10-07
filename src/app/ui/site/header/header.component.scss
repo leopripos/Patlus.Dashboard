@@ -1,0 +1,37 @@
+$nav-height: 55px;
+
+:host {
+  > mat-toolbar {
+    height: $nav-height;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+
+    > div.nav {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+
+      > .nav-item {
+        height: 100%;
+        box-sizing: border-box;
+        border-radius: 0;
+        min-width: $nav-height;
+        background: inherit;
+
+        .circle-image {
+          height: 40px;
+          min-width: 40px;
+        }
+      }
+    }
+  }
+}
