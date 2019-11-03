@@ -1,0 +1,18 @@
+<div class="container">
+  <form [formGroup]="this.mainForm" (ngSubmit)="onSubmit($event)">
+    <div *ngIf=" this.error$ | async as error">
+      <span>{{ error.message }}</span>
+    </div>
+    <div class="form-container">
+      <mat-form-field>
+        <input matInput formControlName="name" type="text" placeholder="Username" autocomplete="off">
+        <mat-icon matSuffix>account_box</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="password" type="password" placeholder="Password" autocomplete="off">
+        <mat-icon matSuffix>lock</mat-icon>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="this.isAuthenticating$ | async">Login</button>
+    </div>
+  </form>
+</div>

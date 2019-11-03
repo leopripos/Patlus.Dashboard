@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { SiteNavService } from '@ui/layout';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { FeatureState } from '@app/feature';
+import { LogoutRequestAction } from '@app/feature/authentication';
 
 @Component({
   selector: 'ui-header',
@@ -11,7 +14,8 @@ export class HeaderComponent {
 
   constructor(
     private siteNavService: SiteNavService,
-    private router: Router
+    private router: Router,
+    private store: Store<FeatureState>
   ) {
   }
 
@@ -28,6 +32,6 @@ export class HeaderComponent {
   }
 
   onLogout(event: any) {
-    this.router.navigateByUrl('/login');
+    this.store.dispatch(new LogoutRequestAction());
   }
 }
