@@ -19,11 +19,26 @@
       "dom"
     ],
     "paths": {
+      "@app/*" : [
+        "src/app/*"
+      ],
+      "@env" : [
+        "src/environments/"
+      ],
+      "@assets/*" : [
+        "src/assets/*"
+      ],
       "@page/*" : [
-        "./src/app/page/*"
+        "src/app/page/*"
       ],
       "@ui/*" : [
-        "./src/app/ui/*"
+        "src/app/ui/*"
+      ],
+      "@common/*" : [
+        "src/app/common/*"
+      ],
+      "@feature/*" : [
+        "src/app/feature/*"
       ]
     }
   },

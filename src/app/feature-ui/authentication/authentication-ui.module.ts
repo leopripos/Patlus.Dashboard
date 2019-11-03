@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatInputModule, MatIconModule, MatDividerModule, MatButtonModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  MatFormFieldModule,
+  MatInputModule,
+  MatIconModule,
+  MatDividerModule,
+  MatButtonModule
+} from '@angular/material';
 
 import { LoginFormComponent } from './login-form/login-form.component';
 
@@ -14,6 +20,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
@@ -24,4 +31,4 @@ import { LoginFormComponent } from './login-form/login-form.component';
     LoginFormComponent
   ]
 })
-export class AuthModule { }
+export class AuthenticationUiModule { }

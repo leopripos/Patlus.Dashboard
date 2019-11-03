@@ -8,10 +8,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
-import { AuthModule } from '@ui/auth';
-
 import { LoginPageRoutingModule } from './login-page-routing.module';
 import { MainComponent } from './main/main.component';
+import { AuthenticationUiModule } from 'src/app/feature-ui/authentication';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,7 @@ import { MainComponent } from './main/main.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    AuthModule
+    AuthenticationUiModule,
   ]
 })
 export class LoginPageModule { }

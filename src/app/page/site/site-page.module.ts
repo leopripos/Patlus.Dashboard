@@ -6,6 +6,6 @@ import { SitePageRoutingModule } from './site-page-routing.module';
   declarations: [],
   imports: [
     SitePageRoutingModule,
-  ]
+  ],
 })
 export class SitePageModule { }
