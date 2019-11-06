@@ -7,10 +7,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 import { LayoutModule } from '@ui/layout';
+import { SiteModule } from '@ui/site';
+import { PoolListTableModule } from '@feature-ui/pool-management';
 
 import { MainComponent } from './main/main.component';
 import { HomePageRoutingModule } from './home-page-routing.module';
-import { SiteModule } from '@ui/site/site.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SiteModule } from '@ui/site/site.module';
     MatIconModule,
     MatButtonModule,
     LayoutModule,
-    SiteModule
+    SiteModule,
+    PoolListTableModule
   ]
 })
 export class HomePageModule { }

@@ -10,7 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { LoginPageRoutingModule } from './login-page-routing.module';
 import { MainComponent } from './main/main.component';
-import { AuthenticationUiModule } from 'src/app/feature-ui/authentication';
+import { LoginFormModule } from '@feature-ui/authentication';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { AuthenticationUiModule } from 'src/app/feature-ui/authentication';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    AuthenticationUiModule,
+    LoginFormModule,
   ]
 })
 export class LoginPageModule { }

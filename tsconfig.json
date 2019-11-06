@@ -19,9 +19,6 @@
       "dom"
     ],
     "paths": {
-      "@app/*" : [
-        "src/app/*"
-      ],
       "@env" : [
         "src/environments/"
       ],
@@ -39,7 +36,13 @@
       ],
       "@feature/*" : [
         "src/app/feature/*"
-      ]
+      ],
+      "@feature-ui/*" : [
+        "src/app/feature-ui/*"
+      ],
+      "@app/*" : [
+        "src/app/*"
+      ],
     }
   },
   "angularCompilerOptions": {

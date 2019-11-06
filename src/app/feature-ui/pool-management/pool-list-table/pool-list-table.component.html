@@ -1,0 +1,32 @@
+<table mat-table class="hoverable-row" [dataSource]="this.items">
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+    <td mat-cell *matCellDef="let element; let i = index">{{ i + 1}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Id. </th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name. </th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Description. </th>
+    <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="active">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let pool">
+        <span  class="active-status active" *ngIf="pool.active" aria-label="Active" color="primary" selected>Active</span>
+        <span  class="active-status inactive" *ngIf="!pool.active" aria-label="Inactive" selected>Inactive</span>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="this.columns"></tr>
+  <tr mat-row *matRowDef="let row; columns: this.columns"></tr>
+</table>

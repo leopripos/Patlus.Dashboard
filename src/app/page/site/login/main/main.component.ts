@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { FeatureState } from '@app/feature';
 import { Observable } from 'rxjs';
-import { selectIsAuthenticated } from '@app/feature/authentication';
+import { AuthenticationSelectors } from '@app/feature/authentication';
 
 @Component({
   selector: 'page-login-main',
@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.isAuthenticated$ = this.store.select(selectIsAuthenticated);
+    this.isAuthenticated$ = this.store.select(AuthenticationSelectors.isAuthenticated);
   }
 
 }
