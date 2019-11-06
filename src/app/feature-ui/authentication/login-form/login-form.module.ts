@@ -9,9 +9,7 @@ import {
   MatButtonModule
 } from '@angular/material';
 
-import { LoginFormComponent } from './login-form/login-form.component';
-
-
+import { LoginFormComponent } from './login-form.component';
 
 @NgModule({
   declarations: [
@@ -31,4 +29,4 @@ import { LoginFormComponent } from './login-form/login-form.component';
     LoginFormComponent
   ]
 })
-export class AuthenticationUiModule { }
+export class LoginFormModule { }

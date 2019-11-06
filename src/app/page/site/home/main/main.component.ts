@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { HttpClient } from '@angular/common/http';
+import { Store, select } from '@ngrx/store';
+import { FeatureState } from '@app/feature';
+import { PoolManagementSelectors, PoolModel, LoadRequestAction } from '@feature/pool-management';
 
 @Component({
   selector: 'page-home-main',
@@ -9,31 +9,17 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
-      }
-
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
-    })
-  );
+  pools: PoolModel[];
 
   constructor(
-    private breakpointObserver: BreakpointObserver,
-    private httpClient: HttpClient,
+    private store: Store<FeatureState>,
   ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.pipe(select(PoolManagementSelectors.collectionArray)).subscribe(pools => {
+      this.pools = pools;
+    });
+
+    this.store.dispatch(new LoadRequestAction());
+  }
 }

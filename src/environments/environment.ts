@@ -9,7 +9,7 @@ export const environment = {
     identity: {
       url: 'https://localhost:5001',
       poolId: 'c73d72b1-326d-4213-ab11-ba47d83b9ccf',
-    }
+    },
   }
 };
 

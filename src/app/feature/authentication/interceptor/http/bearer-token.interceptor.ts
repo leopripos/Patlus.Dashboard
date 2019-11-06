@@ -6,7 +6,7 @@ import { Store, select } from '@ngrx/store';
 import { FeatureState } from '@app/feature';
 import { RefreshRequestAction } from '../../action/refresh.action';
 import { AuthenticationState } from '../../authentication.state';
-import { selectAuthentication } from '../../authentication.selector';
+import { AuthenticationSelectors } from '../../authentication.selector';
 import { AuthenticationService } from '../../authentication.service';
 import { TokenResolverService } from '../../token-resolver.service';
 
@@ -20,7 +20,7 @@ export class BearerTokenInterceptor implements HttpInterceptor {
     private authenticationService: AuthenticationService,
     private store: Store<FeatureState>,
   ) {
-    this.authenticationState$ = store.pipe(select(selectAuthentication));
+    this.authenticationState$ = store.pipe(select(AuthenticationSelectors.featureState));
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

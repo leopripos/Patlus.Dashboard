@@ -1,5 +1,5 @@
 import { NgModule, InjectionToken, inject } from '@angular/core';
-import { StoreModule, ActionReducer, ActionReducerMap } from '@ngrx/store';
+import { StoreModule, ActionReducer } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 

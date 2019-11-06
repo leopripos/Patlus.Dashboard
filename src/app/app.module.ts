@@ -18,10 +18,10 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     FeatureModule,
-    SitePageModule,
     LayoutModule,
     HttpClientModule,
     AppRoutingModule,
+    SitePageModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

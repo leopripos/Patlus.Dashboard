@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { FeatureState } from '@app/feature/feature.state';
-import { LoginRequestAction, selectIsAuthenticating, selectIsAuthenticated, selectAuthenticationError } from '@app/feature/authentication';
+import { LoginRequestAction, AuthenticationSelectors } from '@app/feature/authentication';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ErrorPayload } from '@app/common/payload';
@@ -25,9 +25,9 @@ export class LoginFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router
   ) {
-    this.isAuthenticating$ = this.store.pipe(select(selectIsAuthenticating));
-    this.isAuthenticated$ = this.store.pipe(select(selectIsAuthenticated));
-    this.error$ = this.store.pipe(select(selectAuthenticationError));
+    this.isAuthenticating$ = this.store.pipe(select(AuthenticationSelectors.isAuthenticating));
+    this.isAuthenticated$ = this.store.pipe(select(AuthenticationSelectors.isAuthenticated));
+    this.error$ = this.store.pipe(select(AuthenticationSelectors.error));
   }
 
   ngOnInit() {

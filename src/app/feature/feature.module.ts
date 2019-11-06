@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
-import { AuthenticationModule } from './authentication';
-import { environment } from 'src/environments/environment.prod';
 import { EffectsModule } from '@ngrx/effects';
+import { environment } from '@env';
+
+import { AuthenticationModule, ActionType as AuthenticationActionType } from './authentication';
+import { PoolManagementModule } from './pool-management';
+import { FeatureMetaReducers } from './feature.meta-reducer';
 
 @NgModule({
   declarations: [],
   imports: [
     StoreModule.forRoot({}, {
+      metaReducers: [
+        FeatureMetaReducers.logout
+      ],
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true,
@@ -22,7 +28,8 @@ import { EffectsModule } from '@ngrx/effects';
       logOnly: environment.production
     }),
 
-    AuthenticationModule
+    AuthenticationModule,
+    PoolManagementModule
   ],
 })
 export class FeatureModule { }

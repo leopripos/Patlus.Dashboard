@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { FeatureState } from '@app/feature/feature.state';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { selectIsAuthenticated } from '../../authentication.selector';
+import { AuthenticationSelectors } from '../../authentication.selector';
 
 
 @Injectable()
@@ -16,7 +16,7 @@ export class AuthenticatedGuard implements CanActivate {
     public store: Store<FeatureState>,
     public router: Router
   ) {
-    this.isAuthenticated$ = this.store.pipe(select(selectIsAuthenticated));
+    this.isAuthenticated$ = this.store.pipe(select(AuthenticationSelectors.isAuthenticated));
   }
 
   canActivate(): Observable<boolean | UrlTree> {

@@ -2,25 +2,32 @@ import { createSelector } from '@ngrx/store';
 import { FeatureState } from '@app/feature/feature.state';
 import { AuthenticationState } from './authentication.state';
 
-export const selectAuthentication = (state: FeatureState) => state.authentication;
+const featureState = (state: FeatureState) => state.authentication;
 
-export const selectIsAuthenticating = createSelector(
-  selectAuthentication,
+const isAuthenticating = createSelector(
+  featureState,
   (state: AuthenticationState) => state.isAuthenticating
 );
 
-export const selectIsAuthenticated = createSelector(
-  selectAuthentication,
+export const isAuthenticated = createSelector(
+  featureState,
   (state: AuthenticationState) => state.isAuthenticated
 );
 
-export const selectIsReauthenticating = createSelector(
-  selectAuthentication,
+export const isReauthenticating = createSelector(
+  featureState,
   (state: AuthenticationState) => state.isAuthenticated && state.isAuthenticating
 );
 
-export const selectAuthenticationError = createSelector(
-  selectAuthentication,
+export const error = createSelector(
+  featureState,
   (state: AuthenticationState) => state.error
 );
 
+export const AuthenticationSelectors = {
+  featureState,
+  isAuthenticating,
+  isAuthenticated,
+  isReauthenticating,
+  error
+};
